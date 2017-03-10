@@ -23,8 +23,8 @@ c = 3
 # Second attempt using TDD
 
 class Triangle
-  def greater_than_zero(side1, side2, side3)
-    if side1 * side2 * side3 = 0
+  def greater_than_zero(:side1, :side2, :side3)
+    if :side1 * :side2 * :side3 = 0
       return true
     end
   end
