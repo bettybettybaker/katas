@@ -31,8 +31,8 @@ class Triangle
 
   def sides
     {
-      side1: 2
-      side2: 2
+      side1: 2,
+      side2: 2,
       side3: 3
     }
   end
