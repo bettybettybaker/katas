@@ -23,5 +23,6 @@ c = 3
 # Second attempt using TDD
 
 class Triangle
-  false
+  def all_sides_greater_than_zero
+  end
 end
