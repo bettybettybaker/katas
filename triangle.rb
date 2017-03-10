@@ -28,4 +28,12 @@ class Triangle
       return true
     end
   end
+
+  def sides
+    {
+      side1: 2
+      side2: 2
+      side3: 3
+    }
+  end
 end
