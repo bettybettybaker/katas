@@ -1,8 +1,6 @@
 require "minitest/autorun"
 require "./triangle.rb"
 
-def test_truth
-
-  assert true
+def test_triangle
 
 end
