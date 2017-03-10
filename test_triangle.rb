@@ -1,6 +1,6 @@
 require "minitest/autorun"
 require "./triangle.rb"
 
-def test_triangle
+class TestTriangle
 
 end
