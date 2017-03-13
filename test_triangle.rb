@@ -28,6 +28,11 @@ class TestTriangle < Minitest::Test
     assert_equal :equilateral, equilateral.type
   end
 
+  def test_isosceles
+    isosceles = Triangle.new(1, 3, 3)
+    assert_equal :isosceles, isosceles.type
+  end
+
 end
 
 #  def test_does_triangle_exist
