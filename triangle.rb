@@ -16,7 +16,9 @@ class Triangle
 
     elsif sides[0] == sides[1] || sides[1] == sides[2] || sides[2] == sides[0]
         return :isosceles
- 
+
+    else sides[0] != sides[1] && sides[1] != sides[2] && sides[2] != sides[0]
+      return :scalene
     end
 
   end
