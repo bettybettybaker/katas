@@ -24,7 +24,6 @@ class TestTriangle < Minitest::Test
   end
 
   def test_equilateral
-    skip
     equilateral = Triangle.new(1, 1, 1)
     assert_equal :equilateral, equilateral.type
   end
