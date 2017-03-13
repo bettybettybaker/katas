@@ -8,19 +8,25 @@ blueprints and I need to tell them what kind they are
 =end
 
 class TestTriangle < Minitest::Test
-  def test_positive_triangle
-    positive_triangle = Triangle.new(2, 3, 4)
-    assert positive_triangle.valid?
-  end
 
   def test_negative_triangle
     negative_triangle = Triangle.new(-1, 3, 4)
-    refute negative_triangle.valid?
+    assert_raises do
+      negative_triangle.type
+    end
   end
 
   def test_zero_length_side
     zero_length_side = Triangle.new(0, 1, 2)
-    refute zero_length_side.valid?
+    assert_raises do
+      zero_length_side.type
+    end
+  end
+
+  def test_equilateral
+    skip
+    equilateral = Triangle.new(1, 1, 1)
+    assert_equal :equilateral, equilateral.type
   end
 
 end

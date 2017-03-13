@@ -7,4 +7,8 @@ class Triangle
   def valid?
     sides.reduce(:*) > 0
   end
+
+  def type
+    fail unless valid?  
+  end
 end
