@@ -5,6 +5,6 @@ class Triangle
   end
 
   def valid?
-    sides[0] * sides[1] * sides[2] != 0
+    sides.reduce(:*) > 0
   end
 end
