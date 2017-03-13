@@ -9,6 +9,12 @@ class Triangle
   end
 
   def type
-    fail unless valid?  
+    fail unless valid?
+
+    if sides[0] == sides[1] && sides[1] == sides[2]
+      return :equilateral
+    end
+
   end
+
 end
