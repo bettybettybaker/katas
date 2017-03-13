@@ -33,6 +33,11 @@ class TestTriangle < Minitest::Test
     assert_equal :isosceles, isosceles.type
   end
 
+  def test_scalene
+    scalene = Triangle.new(1, 2, 3)
+    assert_equal :scalene, scalene.type
+  end
+
 end
 
 #  def test_does_triangle_exist
