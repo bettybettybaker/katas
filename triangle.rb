@@ -17,6 +17,8 @@ class Triangle
   end
 
   def type
+
+# Only continue in this method if valid? determines our data is a valid triangle    
     fail unless valid?
 
 # Return equilateral if all sides are of equal length.
