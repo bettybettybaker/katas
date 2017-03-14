@@ -1,3 +1,5 @@
+# https://github.com/sparkbox/apprenticeships/blob/overhaul/basic-programming/project-triangle-kata.md
+
 require "minitest/autorun"
 require "./triangle"
 
@@ -20,6 +22,13 @@ class TestTriangle < Minitest::Test
     zero_length_side = Triangle.new(0, 1, 2)
     assert_raises do
       zero_length_side.type
+    end
+  end
+
+  def test_sum_of_any_two_sides_greater_or_equal_to_the_third
+    greater_or_equal = Triangle.new(1, 2, 99)
+    assert_raises do
+      greater_or_equal.type
     end
   end
 
