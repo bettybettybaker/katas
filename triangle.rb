@@ -6,21 +6,13 @@ class Triangle
     @sides = [a, b, c]
   end
 
-  # Raise an error if a combination of sides cannot create a triangle.
-  def valid?
-
-# All sides are greater than zero.
-    sides.reduce(:*) > 0
-
-# The sum of any two sides must be greater than or equal to the third.
-    sides[0] + sides[1] >= sides[2] && sides[1] + sides[2] >= sides[0] && sides[0] + sides[2] >= sides[1]
+  def validate
+    has_three_sides
+    three_sides_make_triangle
   end
 
   def type
-
-# Only continue in this method if valid? determines our data is a valid triangle    
-    fail unless valid?
-
+    validate
 # Return equilateral if all sides are of equal length.
     if sides[0] == sides[1] && sides[1] == sides[2]
       return :equilateral
@@ -36,4 +28,26 @@ class Triangle
 
   end
 
+  private
+
+  def has_three_sides
+    unless sides.reduce(:*) > 0
+      fail
+    end
+  end
+
+  def three_sides_make_triangle
+    unless sides[0] + sides[1] >= sides[2] && sides[1] + sides[2] >= sides[0] && sides[0] + sides[2] >= sides[1]
+      fail
+    end
+  end
+
 end
+
+
+# equilateral = Triangle.new(4, 4, 4).has_three_sides?
+# isosceles = Triangle.new(1, 3, 3).has_three_sides?
+# scalene = Triangle.new(1, 2, 3).has_three_sides?
+# two_sides = Triangle.new(1, 0, 3).has_three_sides?
+# neg_number = Triangle.new(-1, 2, 3).has_three_sides?
+# one_side_too_big = Triangle.new(1, 2, 99).has_three_sides?
