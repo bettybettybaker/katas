@@ -14,9 +14,11 @@ function equilateral (sides){
 // equilateral tests
 
 // true
-if (equilateral([1, 1, 1]) != true) {
+if (equilateral([1, 2, 1]) != true) {
+const variableTest = "HERE";
+
 console.log(
-  "Sorry, testing [1, 1, 1] for an equilateral triangle returned false.");
+  `Sorry, testing [1, 2, 1] for an ${variableTest} equilateral triangle returned false.`);
 }
 
 // false
