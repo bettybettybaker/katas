@@ -12,12 +12,12 @@ function equilateral (sides){
 // true
 
 assert.deepEqual(
-  true, equilateral([1, 1, 1]),
+  true, equilateral([1, 1, 1]), // if these are not equal, puts error message:
   "Sorry, testing [1, 1, 1] for an equilateral triangle returned false.");
 
 // false
 assert.deepEqual(
-  true, equilateral([1, 2, 3]),
+  true, equilateral([1, 2, 3]), // if these are not equal, puts error message:
   "Sorry, testing [1, 2, 3] for an equilateral triangle returned false.");
 
 // Isosceles
@@ -32,20 +32,20 @@ function isosceles (sides){
 
 //true
 assert.deepEqual(
-  true, isosceles([1, 3, 3]),
+  true, isosceles([1, 3, 3]), // if these are not equal, puts error message:
   "Sorry, testing [1, 3, 3] for an isosceles triangle returned false.");
 
 assert.deepEqual(
-  true, isosceles([2, 2, 5]),
+  true, isosceles([2, 2, 5]), // if these are not equal, puts error message:
   "Sorry, testing [2, 2, 5] for an isosceles triangle returned false.");
 
 assert.deepEqual(
-  true, isosceles([1, 2, 3]),
+  true, isosceles([1, 2, 3]), // if these are not equal, puts error message:
   "Sorry, testing [1, 2, 3] for an isosceles triangle returned false.");
 
 // false
 assert.deepEqual(
-  true, isosceles([99, 80, 99]),
+  true, isosceles([99, 80, 99]), // if these are not equal, puts error message:
   "Sorry, testing [99, 80, 99] for an isosceles triangle returned false.");
 
 
@@ -61,14 +61,14 @@ function scalene (sides){
 
 // true
 assert.deepEqual(
-  true, scalene([1, 2, 3]),
+  true, scalene([1, 2, 3]), // if these are not equal, puts error message:
   "Sorry, testing [1, 2, 3] for an scalene triangle returned false.");
 
 // false
 // assert.deepEqual(
-// true, scalene([2, 2, 2]),
+// true, scalene([2, 2, 2]), // if these are not equal, puts error message:
 // "Sorry, testing [2, 2, 2] for an scalene triangle returned false.");
 
 // assert.deepEqual(
-// true, scalene([1, 3, 3]),
+// true, scalene([1, 3, 3]), // if these are not equal, puts error message:
 // "Sorry, testing [1, 3, 3] for an scalene triangle returned false.");
