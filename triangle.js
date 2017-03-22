@@ -1,39 +1,42 @@
 // Equilateral
-var sides = [1, 1, 1];
 
 function equilateral (sides){
   if (sides[0] === sides[1] && sides[1] === sides[2]) {
-    console.log("This is an equilateral triangle.");
+    return true;
   } else {
-    console.log("This is NOT an equilateral triangle.");
-  }
-  return sides;
+    return false;
+    }
 }
 
-equilateral(sides);
+equilateral([1, 1, 1]);   // true
+equilateral([1, 2, 3]);   // false
 
 // Isosceles
 
 function isosceles (sides){
-  if (sides[0] === sides[1] || sides[1] === sides[2] || sides[2] === sides[0]){
-    console.log("This is an isosceles triangle.");
+  if (sides[0] === sides[0] || sides[1] === sides[2] || sides[2] === sides[0]){
+    return true;
 } else {
-    console.log("This is NOT an isosceles triangle.");
-}
-return sides;
+    return false;
+  }
 }
 
-isosceles(sides);
+isosceles([1, 3, 3]);   // true
+isosceles([2, 2, 5]);   // true
+isosceles([99, 80, 99]);  // true
+isosceles([1, 2, 3]);   // false
+
 
 // Scalene
 
 function scalene (sides){
   if (sides[0] != sides[1] && sides[1] != sides[2] && sides[2] != sides[0]){
-  console.log("This is a scalene triangle.");
+    return true;
 } else {
-  console.log("This is NOT a scalene triangle.");
-}
-return sides;
+    return false;
+  }
 }
 
-scalene(sides);
+scalene([1, 2, 3]);   // true
+scalene([2, 2, 2]); // false
+scalene([1, 3, 3]); // false
