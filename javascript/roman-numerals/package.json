@@ -1,0 +1,19 @@
+{
+  "name": "katas",
+  "version": "1.0.0",
+  "description": "Practicing Katas in various programming languages.",
+  "main": "roman.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bettybettybaker/katas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bettybettybaker/katas/issues"
+  },
+  "homepage": "https://github.com/bettybettybaker/katas#readme"
+}
