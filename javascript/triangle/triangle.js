@@ -7,18 +7,28 @@ function equilateral (sides){
 // equilateral tests
 
 const testCase = [
-  [1, 1, 1], // equilateral
-  [1, 2, 3], // scalene
-  [1, 3, 3], // isosceles
-  [2, 2, 5], // isosceles
-  [99, 80, 99] // isosceles
+  [1, 1, 1],
+  [1, 2, 3],
+  [1, 3, 3],
+  [2, 2, 5],
+  [99, 80, 99]
 ];
 
-// true
-if (testCase[1] = false) {
+const testFunctions = {equilateral};
 
+let testType = "equilateral";
+
+/*
+Object.keys(testFunctions).forEach((name, index) => {
+  console.log(name);
+  console.log(testFunctions[name]);
+});
+*/
+
+// true
+if (testFunctions[testType](testCase[1]) == false) {
 console.log(
-  `Sorry, testing ${testCase[1]} for an equilateral triangle returned false.`);
+  `Sorry, testing ${testCase[1]} for an ${testType} triangle returned false.`);
 }
 
 /*
@@ -33,7 +43,8 @@ if (equilateral([1, 2, 3]) != true) {
 // Isosceles
 
 function isosceles (sides){
-  return (sides[0] === sides[1] || sides[1] === sides[2] || sides[2] === sides[0]);
+  return (
+  sides[0] === sides[1] || sides[1] === sides[2] || sides[2] === sides[0]);
 }
 
 // isosceles tests
