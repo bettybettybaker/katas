@@ -1,25 +1,27 @@
 // Equilateral
 
 function equilateral (sides){
-  if (sides[0] === sides[1] && sides[1] === sides[2]) {
-    return true;
-  }
-  return false;
+  return sides[0] === sides[1] && sides[1] === sides[2];
 }
-
-/*
-- look up string interpolation in javascript (instead of concatination)
-*/
 
 // equilateral tests
 
+const testCase = [
+  [1, 1, 1], // equilateral
+  [1, 2, 3], // scalene
+  [1, 3, 3], // isosceles
+  [2, 2, 5], // isosceles
+  [99, 80, 99] // isosceles
+];
+
 // true
-if (equilateral([1, 2, 1]) != true) {
-const variableTest = "HERE";
+if (testCase[1] = false) {
 
 console.log(
-  `Sorry, testing [1, 2, 1] for an ${variableTest} equilateral triangle returned false.`);
+  `Sorry, testing ${testCase[1]} for an equilateral triangle returned false.`);
 }
+
+/*
 
 // false
 if (equilateral([1, 2, 3]) != true) {
@@ -31,10 +33,7 @@ if (equilateral([1, 2, 3]) != true) {
 // Isosceles
 
 function isosceles (sides){
-  if (sides[0] === sides[1] || sides[1] === sides[2] || sides[2] === sides[0]){
-    return true;
-  }
-  return false;
+  return (sides[0] === sides[1] || sides[1] === sides[2] || sides[2] === sides[0]);
 }
 
 // isosceles tests
@@ -63,10 +62,7 @@ if (isosceles([1, 2, 3]) != true) {
 
 // Scalene
 function scalene (sides){
-  if (sides[0] != sides[1] && sides[1] != sides[2] && sides[2] != sides[0]){
-    return true;
-  }
-  return false;
+  return (sides[0] != sides[1] && sides[1] != sides[2] && sides[2] != sides[0]);
 }
 
 // scalene tests
@@ -87,3 +83,5 @@ if (scalene([1, 3, 3]) != true) {
   console.log(
     "Sorry, testing [1, 3, 3] for a scalene triangle returned false.");
 }
+
+*/
