@@ -2,28 +2,23 @@
  /*eslint one-var: ["error", "never"]*/
 /*eslint max-statements: ["error", 15, { "ignoreTopLevelFunctions": true }]*/
 /*eslint no-multiple-empty-lines: ["error", { "max": 4, "maxBOF": 1}]*/
-
+/*eslint max-len: ["error", 100]*/
 
 const numberSets = [
   [10, "X"],
   [9, "IX"],
-  [8, "VIII"],
-  [7, "VII"],
-  [6, "VI"],
   [5, "V"],
   [4, "IV"],
-  [3, "III"],
-  [2, "II"],
   [1, "I"]
 ];
 
-function convertToRoman (num) {
-  if (num === 0) {
+function convertToRoman (number) {
+  if (number === 0) {
     return "";
   }
   for (let index = 0; index < numberSets.length; index += 1) {
-    if (num >= numberSets[index][0]) {
-      return numberSets[index][1] + convertToRoman(num - numberSets[index][0]);
+    if (number >= numberSets[index][0]) {
+      return numberSets[index][1] + convertToRoman(number - numberSets[index][0]);
     }
   }
   return "";
