@@ -1,41 +1,39 @@
-/*eslint no-console: ["off"] */
-/*eslint one-var: ["error", "never"]*/
+ /*eslint no-console: ["off"] */
+ /*eslint one-var: ["error", "never"]*/
+/*eslint max-statements: ["error", 15, { "ignoreTopLevelFunctions": true }]*/
+/*eslint no-multiple-empty-lines: ["error", { "max": 4, "maxBOF": 1}]*/
 
 
-function arabicToRomanNumeral (num) {
-  let result = "";
-  const number = num;
+const numberSets = [
+  [10, "X"],
+  [9, "IX"],
+  [8, "VIII"],
+  [7, "VII"],
+  [6, "VI"],
+  [5, "V"],
+  [4, "IV"],
+  [3, "III"],
+  [2, "II"],
+  [1, "I"]
+];
 
-  if (number === 1){
-    result += "I";
-  } else if (number === 2) {
-    result += "II";
-  } else if (number === 3) {
-    result += "III";
-  } else if (number === 4) {
-    result += "IV";
-  } else if (number === 5) {
-    result += "V";
-  } else if (number === 6) {
-    result += "VI";
-  } else if (number === 7) {
-    result += "VII";
-  } else if (number === 8) {
-    result += "VIII";
-  } else if (number === 9) {
-    result += "IX";
-  } else if (number === 10) {
-    result += "X";
+function convertToRoman (num) {
+  if (num === 0) {
+    return "";
   }
-
-console.log(number);
-
-return result;
+  for (let index = 0; index < numberSets.length; index += 1) {
+    if (num >= numberSets[index][0]) {
+      return numberSets[index][1] + convertToRoman(num - numberSets[index][0]);
+    }
+  }
+  return "";
 }
 
 
+// TESTING //
+
 function testArabicToRomanNumeral (number, expected) {
-  const actual = arabicToRomanNumeral(number);
+  const actual = convertToRoman(number);
 
   if (actual === expected){
     console.log("Passing Test");
@@ -43,7 +41,6 @@ function testArabicToRomanNumeral (number, expected) {
     console.log("ERROR");
   }
 }
-
 
 testArabicToRomanNumeral(1, "I");
 testArabicToRomanNumeral(2, "II");
