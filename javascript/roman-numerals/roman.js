@@ -5,6 +5,14 @@
 /*eslint max-len: ["error", 100]*/
 
 const numberSets = [
+  [1000, "M"],
+  [900, "CM"],
+  [500, "D"],
+  [400, "CD"],
+  [100, "C"],
+  [90, "XC"],
+  [50, "L"],
+  [40, "XL"],
   [10, "X"],
   [9, "IX"],
   [5, "V"],
@@ -47,3 +55,9 @@ testArabicToRomanNumeral(7, "VII");
 testArabicToRomanNumeral(8, "VIII");
 testArabicToRomanNumeral(9, "IX");
 testArabicToRomanNumeral(10, "X");
+testArabicToRomanNumeral(55, "LV");
+testArabicToRomanNumeral(86, "LXXXVI");
+testArabicToRomanNumeral(357, "CCCLVII");
+testArabicToRomanNumeral(838, "DCCCXXXVIII");
+testArabicToRomanNumeral(920, "CMXX");
+testArabicToRomanNumeral(2374, "MMCCCLXXIV");
