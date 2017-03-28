@@ -1,14 +1,32 @@
-function toRoman(num){
-  var result = '';
-  var decimal = [1000, 500, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  var roman = ["M", "D", "C", "L", "X", "V", "I"];
-  for (var i = 0; i <= decimal.length; i++) {
-    while (num % decimal[i] < num) {
-      result += roman[i];
-      num -= decimal[i];
+/*eslint no-console: ["off"] */
+/*eslint one-var: ["error", "never"]*/
+
+
+function arabicToRomanNumeral (num) {
+  let result = "";
+  let number = num;
+
+  while (number <= 10) {
+    if (number == 10) {
+      result += "X";
+      number -= 10;
     }
   }
-  console.log(result);
+console.log(number);
+
 return result;
 }
-toRoman(8);
+
+
+function testArabicToRomanNumeral (number, expected) {
+  const actual = arabicToRomanNumeral(number);
+
+  if (actual === expected){
+    console.log("true");
+  } else {
+    console.log("ERROR");
+  }
+}
+
+
+testArabicToRomanNumeral(1, "I");
