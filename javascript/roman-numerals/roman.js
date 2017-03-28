@@ -3,31 +3,32 @@
 /*eslint max-statements: ["error", 15, { "ignoreTopLevelFunctions": true }]*/
 /*eslint no-multiple-empty-lines: ["error", { "max": 4, "maxBOF": 1}]*/
 /*eslint max-len: ["error", 100]*/
-/*eslint sort-keys: ["off"]*/
 
-const numberSets = {
-  "1000": "M",
-  "900": "CM",
-  "500": "D",
-  "400": "CD",
-  "100": "C",
-  "90": "XC",
-  "50": "L",
-  "40": "XL",
-  "10": "X",
-  "9": "IX",
-  "5": "V",
-  "4": "IV",
-  "1": "I"
-};
+const numberSets = [
+  [1000, "M"],
+  [900, "CM"],
+  [500, "D"],
+  [400, "CD"],
+  [100, "C"],
+  [90, "XC"],
+  [50, "L"],
+  [40, "XL"],
+  [10, "X"],
+  [9, "IX"],
+  [5, "V"],
+  [4, "IV"],
+  [1, "I"]
+];
 
 function convertToRoman (number) {
   if (number === 0) {
     return "";
   }
   for (let index = 0; index < numberSets.length; index += 1) {
-    if (number >= numberSets[index][0]) {
-      return numberSets[index][1] + convertToRoman(number - numberSets[index][0]);
+    let arabicNumeral = numberSets[index][0];
+    let romanNumeral = numberSets[index][1];
+    if (number >= arabicNumeral) {
+      return romanNumeral + convertToRoman(number - arabicNumeral);
     }
   }
   return "";
@@ -62,9 +63,3 @@ testArabicToRomanNumeral(357, "CCCLVII");
 testArabicToRomanNumeral(838, "DCCCXXXVIII");
 testArabicToRomanNumeral(920, "CMXX");
 testArabicToRomanNumeral(2374, "MMCCCLXXIV");
-
-
-// if (number >= numberSets[index][0]) {
-//   return numberSets[index][1] + convertToRoman(number - numberSets[index][0]);
-// }
-// }
