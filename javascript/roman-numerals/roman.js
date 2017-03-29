@@ -2,33 +2,41 @@
  /*eslint one-var: ["error", "never"]*/
 /*eslint max-statements: ["error", 15, { "ignoreTopLevelFunctions": true }]*/
 /*eslint no-multiple-empty-lines: ["error", { "max": 4, "maxBOF": 1}]*/
-/*eslint max-len: ["error", 100]*/
+/*eslint max-len: ["error", 300]*/
+/*eslint sort-keys: ["off"]*/
+/*eslint no-trailing-spaces: ["error", { "skipBlankLines": true }]*/
 
-const numberSets = [
-  [1000, "M"],
-  [900, "CM"],
-  [500, "D"],
-  [400, "CD"],
-  [100, "C"],
-  [90, "XC"],
-  [50, "L"],
-  [40, "XL"],
-  [10, "X"],
-  [9, "IX"],
-  [5, "V"],
-  [4, "IV"],
-  [1, "I"]
-];
+const numberSets = {
+ "1000": "M",
+ "900": "CM",
+ "500": "D",
+ "400": "CD",
+ "100": "C",
+ "90": "XC",
+ "50": "L",
+ "40": "XL",
+ "10": "X",
+ "9": "IX",
+ "5": "V",
+ "4": "IV",
+ "1": "I"
+};
 
-function convertToRoman (number) {
-  if (number === 0) {
+function convertToRoman (numberToConvert) {
+  if (numberToConvert === 0) {
     return "";
   }
-  for (let index = 0; index < numberSets.length; index += 1) {
-    let arabicNumeral = numberSets[index][0];
-    let romanNumeral = numberSets[index][1];
-    if (number >= arabicNumeral) {
-      return romanNumeral + convertToRoman(number - arabicNumeral);
+  const numberSetsArray = Object.keys(numberSets);
+
+  for (let index = 0; index < numberSetsArray.length; index += 1) {
+    const arabicNumeral = parseInt(numberSetsArray[index], 10);
+    const romanNumeral = numberSets[arabicNumeral]; // example, numberSets["1000"] will return "M"
+    const newNumberToConvert = toString(numberToConvert - arabicNumeral); // THIS IS WHERE YOU LEFT OFF ON TUESDAY 1 OF 3
+
+    console.log(toString(numberToConvert - arabicNumeral)); // THIS IS WHERE YOU LEFT OFF ON TUESDAY 2 OF 3
+
+    if (numberToConvert >= arabicNumeral) {
+      return romanNumeral + convertToRoman(newNumberToConvert); // THIS IS WHERE YOU LEFT OFF ON TUESDAY 3 OF 3
     }
   }
   return "";
@@ -37,29 +45,29 @@ function convertToRoman (number) {
 
 // TESTING //
 
-function testArabicToRomanNumeral (number, expected) {
-  const actual = convertToRoman(number);
+function testArabicToRomanNumeral (numberToConvert, expected) {
+  const actual = convertToRoman(numberToConvert);
 
   if (actual === expected){
-    console.log("Passing Test: " + number + " ==> " + expected);
+    console.log("Passing Test: " + numberToConvert + " ==> " + expected);
   } else {
-    console.log("Error: Entered " + number + ". Returned " + actual + ", but expected " + expected);
+    console.log("Error: Entered " + numberToConvert + ". Returned " + actual + ", but expected " + expected);
   }
 }
 
-testArabicToRomanNumeral(1, "I");
-testArabicToRomanNumeral(2, "II");
-testArabicToRomanNumeral(3, "III");
-testArabicToRomanNumeral(4, "IV");
-testArabicToRomanNumeral(5, "V");
-testArabicToRomanNumeral(6, "VI");
-testArabicToRomanNumeral(7, "VII");
-testArabicToRomanNumeral(8, "VIII");
-testArabicToRomanNumeral(9, "IX");
-testArabicToRomanNumeral(10, "X");
-testArabicToRomanNumeral(55, "LV");
-testArabicToRomanNumeral(86, "LXXXVI");
-testArabicToRomanNumeral(357, "CCCLVII");
-testArabicToRomanNumeral(838, "DCCCXXXVIII");
-testArabicToRomanNumeral(920, "CMXX");
-testArabicToRomanNumeral(2374, "MMCCCLXXIV");
+//testArabicToRomanNumeral(1, "I");
+// testArabicToRomanNumeral(2, "II");
+// testArabicToRomanNumeral(3, "III");
+ testArabicToRomanNumeral(4, "IV");
+ //testArabicToRomanNumeral(5, "V");
+// testArabicToRomanNumeral(6, "VI");
+// testArabicToRomanNumeral(7, "VII");
+// testArabicToRomanNumeral(8, "VIII");
+// testArabicToRomanNumeral(9, "IX");
+// testArabicToRomanNumeral(10, "X");
+// testArabicToRomanNumeral(55, "LV");
+// testArabicToRomanNumeral(86, "LXXXVI");
+// testArabicToRomanNumeral(357, "CCCLVII");
+// testArabicToRomanNumeral(838, "DCCCXXXVIII");
+// testArabicToRomanNumeral(920, "CMXX");
+// testArabicToRomanNumeral(2374, "MMCCCLXXIV");
