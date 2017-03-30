@@ -1,10 +1,11 @@
- /*eslint no-console: ["off"] */
- /*eslint one-var: ["error", "never"]*/
+/*eslint no-console: ["off"] */
+/*eslint one-var: ["error", "never"]*/
 /*eslint max-statements: ["error", 15, { "ignoreTopLevelFunctions": true }]*/
 /*eslint no-multiple-empty-lines: ["error", { "max": 4, "maxBOF": 1}]*/
 /*eslint max-len: ["error", 300]*/
 /*eslint sort-keys: ["off"]*/
 /*eslint no-trailing-spaces: ["error", { "skipBlankLines": true }]*/
+/*eslint max-statements: ["error", 20, { "ignoreTopLevelFunctions": true }]*/
 
 const numberSets = {
  "1000": "M",
@@ -23,20 +24,25 @@ const numberSets = {
 };
 
 function convertToRoman (numberToConvert) {
-  if (numberToConvert === 0) {
+// // console.log("Start of numberToConvert ==> " + numberToConvert);
+  if (numberToConvert <= 0) {
     return "";
   }
-  const numberSetsArray = Object.keys(numberSets);
+  const arabicNumberArray = Object.keys(numberSets);
+  const romanNumeralArray = arabicNumberArray.map(function getRomanNumeral (value) {
+    return numberSets[value];
+  });
 
-  for (let index = 0; index < numberSetsArray.length; index += 1) {
-    const arabicNumeral = parseInt(numberSetsArray[index], 10);
-    const romanNumeral = numberSets[arabicNumeral]; // example, numberSets["1000"] will return "M"
-    const newNumberToConvert = toString(numberToConvert - arabicNumeral); // THIS IS WHERE YOU LEFT OFF ON TUESDAY 1 OF 3
+// for loop - loops throguh the arabicNumberArray
+  for (let index = 0; index < arabicNumberArray.length; index += 1) {
+    const arabicNumeral = arabicNumberArray[index];
+    const romanNumeral = romanNumeralArray[index];
 
-    console.log(toString(numberToConvert - arabicNumeral)); // THIS IS WHERE YOU LEFT OFF ON TUESDAY 2 OF 3
-
+    // console.log("arabic numeral ==>  " + arabicNumeral);
+    // console.log("roman numeral ==>  " + romanNumeral);
+    parseInt(arabicNumeral, 10);
     if (numberToConvert >= arabicNumeral) {
-      return romanNumeral + convertToRoman(newNumberToConvert); // THIS IS WHERE YOU LEFT OFF ON TUESDAY 3 OF 3
+      return romanNumeral + convertToRoman(numberToConvert - arabicNumeral);
     }
   }
   return "";
@@ -49,17 +55,18 @@ function testArabicToRomanNumeral (numberToConvert, expected) {
   const actual = convertToRoman(numberToConvert);
 
   if (actual === expected){
-    console.log("Passing Test: " + numberToConvert + " ==> " + expected);
+     console.log("Passing Test: " + numberToConvert + " ==> " + expected);
   } else {
-    console.log("Error: Entered " + numberToConvert + ". Returned " + actual + ", but expected " + expected);
+     console.log("Error: Entered " + numberToConvert + ". Returned " + actual + ", but expected " + expected);
   }
 }
 
-//testArabicToRomanNumeral(1, "I");
-// testArabicToRomanNumeral(2, "II");
+
+// testArabicToRomanNumeral(1, "I");
+ // testArabicToRomanNumeral(2, "II");
 // testArabicToRomanNumeral(3, "III");
  testArabicToRomanNumeral(4, "IV");
- //testArabicToRomanNumeral(5, "V");
+// testArabicToRomanNumeral(5, "V");
 // testArabicToRomanNumeral(6, "VI");
 // testArabicToRomanNumeral(7, "VII");
 // testArabicToRomanNumeral(8, "VIII");
